@@ -1,0 +1,16 @@
+To-Do:
+basic:
+ 1) total questions solved.
+ 2) rank
+ 3) community stats
+ 4) etc...
+main work(selling point):
+ 1) add friends over the app.
+ 2) in compare section, you can compare different attributes like: 
+   -> total no of questions done by both parties 
+   -> easy medium hard comparison through charts
+   -> contest ratings comparison
+   -> badge comparison 
+   -> today's submission count 
+   -> (maybe) SDE sheets solved comparison
+ 3) face-off btw 2 participants(future)
