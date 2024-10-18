@@ -1,12 +1,13 @@
 // src/components/Login.js
-import React, { useState } from 'react';
-import '../../assets/Login.css'; // Styles for the component
+import React, { useState, useEffect } from 'react';
+import './Login.css'; // Styles for the component
 import {useInputValidation} from '6pp';
 import {usernameValidator,emailValidator} from '../../utils/validator';
+import Homepage from "../homepage/Homepage.jsx"
 
-
-const Login = () => {
+const Login = () => { 
   const [error, setError] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const username = useInputValidation("",usernameValidator);
   const email = useInputValidation("",emailValidator);
@@ -15,15 +16,21 @@ const Login = () => {
     e.preventDefault();
 
     // Basic validation (just checking for empty fields)
-    if (!email || !username) {
+    if (!email.value || !username.value) {
       setError('Please fill out both fields');
       return;
     }
 
-    // You can add your actual authentication logic here
-    console.log('Logging in with', { email, username});
+    // You can add your actual authentication logic here 
+    console.log('Logging in with', { email: email.value, username: username.value});
     setError('');  // Reset the error after successful login attempt
+    setIsLoggedIn(true); //set logged in state
   };
+
+  // If the user is logged in, render the Homepage component
+  if (isLoggedIn) {
+    return <Homepage/>;
+  }
 
   return (
     <div className="login-container">

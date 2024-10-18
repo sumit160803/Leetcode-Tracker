@@ -28,7 +28,8 @@
   .form-group label {
     display: block;
     font-size: 14px;
-    color: #fff;
+    padding-left: 8px;
+    color: #000000;
     margin-bottom: 5px;
   }
   
@@ -47,14 +48,16 @@
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 16px;
     cursor: pointer;
     margin: 20px 0px 30px;
   }
   
   .btn-login:hover {
-    background-color: #0056b3;
+     background: -webkit-linear-gradient(16deg,rgb(0, 228, 194),#ff5546);
+    -webkit-background-clip: padding-box;
+    -webkit-text-fill-color:#white;
   }
   
   .error-message {
