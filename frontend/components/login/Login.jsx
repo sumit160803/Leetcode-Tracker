@@ -1,70 +1,124 @@
 // src/components/Login.js
-import React, { useState, useEffect } from 'react';
-import './Login.css'; // Styles for the component
-import {useInputValidation} from '6pp';
-import {usernameValidator,emailValidator} from '../../utils/validator';
-import Homepage from "../homepage/Homepage.jsx"
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import { useInputValidation } from '6pp';
+import { usernameValidator, emailValidator } from '../../utils/validator';
+import Homepage from '../homepage/Homepage.jsx';
 
-const Login = () => { 
+const Login = () => {
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const username = useInputValidation("",usernameValidator);
-  const email = useInputValidation("",emailValidator);
+  const username = useInputValidation('', usernameValidator);
+  const email = useInputValidation('', emailValidator);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation (just checking for empty fields)
     if (!email.value || !username.value) {
       setError('Please fill out both fields');
       return;
     }
 
-    // You can add your actual authentication logic here 
-    console.log('Logging in with', { email: email.value, username: username.value});
-    setError('');  // Reset the error after successful login attempt
-    setIsLoggedIn(true); //set logged in state
+    console.log('Logging in with', { email: email.value, username: username.value });
+    setError('');
+    setIsLoggedIn(true);
   };
 
-  // If the user is logged in, render the Homepage component
   if (isLoggedIn) {
-    return <Homepage/>;
+    return <Homepage />;
   }
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+    <div
+      className="container d-flex justify-content-center align-items-center vh-100"
+      style={{
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(10px)',
+        height: '100vh',
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: 'transparent',
+          border: '2px solid rgba(255, 255, 255, 0.3)',
+          backdropFilter: 'blur(30px)',
+          boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.4)',
+          borderRadius: '10px',
+          padding: '20px',
+          width: '300px',
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Login</h2>
 
-        {error && <p className="error-message">{error}</p>} {/* Display error if any */}
+          {error && (
+            <p style={{ color: 'red', textAlign: 'center', marginBottom: '15px' }}>
+              {error}
+            </p>
+          )}
 
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            value={email.value}
-            onChange={email.changeHandler}
-          />
-        </div>
+          <div className="form-group mb-3">
+            <label htmlFor="email" className="form-label" style={{ color: '#000' }}>
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              value={email.value}
+              onChange={email.changeHandler}
+              className="form-control"
+              style={{
+                borderRadius: '30px',
+                padding: '10px',
+                boxSizing: 'border-box',
+              }}
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="username"
-            id="username"
-            placeholder="Enter your Leetcode Username"
-            value={username.value}
-            onChange={username.changeHandler}
-          />
-        </div>
+          <div className="form-group mb-3">
+            <label htmlFor="username" className="form-label" style={{ color: '#000' }}>
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter your Leetcode Username"
+              value={username.value}
+              onChange={username.changeHandler}
+              className="form-control"
+              style={{
+                borderRadius: '30px',
+                padding: '10px',
+                boxSizing: 'border-box',
+              }}
+            />
+          </div>
 
-        <button type="submit" className="btn-login">
-          Login
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="btn btn-primary w-100"
+            style={{
+              backgroundColor: '#007bff',
+              color: 'white',
+              borderRadius: '20px',
+              padding: '10px',
+              marginTop: '20px',
+              cursor: 'pointer',
+              transition: 'background 0.3s',
+            }}
+            onMouseOver={(e) => {
+              e.target.style.background = 'linear-gradient(16deg, rgb(0, 228, 194), #ff5546)';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#007bff';
+            }}
+          >
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
