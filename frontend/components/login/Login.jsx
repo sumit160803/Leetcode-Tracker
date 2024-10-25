@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import { useInputValidation } from '6pp';
 import { usernameValidator, emailValidator } from '../../utils/validator';
 import Homepage from '../homepage/Homepage.jsx';
+import  './Login.css';
+
 
 const Login = () => {
   const [error, setError] = useState('');
@@ -31,18 +33,18 @@ const Login = () => {
 
   return (
     <div
-      className="container d-flex justify-content-center align-items-center vh-100"
+      className="login-container d-flex justify-content-center align-items-center vh-100"
       style={{
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-        backdropFilter: 'blur(10px)',
+        // backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        // backdropFilter: 'blur(10px)',
         height: '100vh',
       }}
     >
       <div
         style={{
           backgroundColor: 'transparent',
-          border: '2px solid rgba(255, 255, 255, 0.3)',
-          backdropFilter: 'blur(30px)',
+          border: '1px solid rgba(0, 0, 50, 0.7)',
+          backdropFilter: 'blur(40px)',
           boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.4)',
           borderRadius: '10px',
           padding: '20px',
@@ -50,7 +52,7 @@ const Login = () => {
         }}
       >
         <form onSubmit={handleSubmit}>
-          <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Login</h2>
+          <h2 style={{ textAlign: 'center', color: 'rgba(0, 0, 50, 0.7)', marginBottom: '20px' }}>Login</h2>
 
           {error && (
             <p style={{ color: 'red', textAlign: 'center', marginBottom: '15px' }}>
@@ -109,10 +111,10 @@ const Login = () => {
               transition: 'background 0.3s',
             }}
             onMouseOver={(e) => {
-              e.target.style.background = 'linear-gradient(16deg, rgb(0, 228, 194), #ff5546)';
+              e.target.classList.add('bg-hover-gradient');
             }}
             onMouseOut={(e) => {
-              e.target.style.backgroundColor = '#007bff';
+              e.target.classList.remove('bg-hover-gradient');
             }}
           >
             Login

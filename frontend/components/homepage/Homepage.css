@@ -1,0 +1,6 @@
+.background-container {
+    /* background: url('../../assets/stars.jpeg') no-repeat center center fixed; */
+    background: linear-gradient(90deg, #000428, #004e92);
+    background-size: cover;
+    min-height: 100vh;
+}

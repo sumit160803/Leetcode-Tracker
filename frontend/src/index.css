@@ -4,16 +4,14 @@ body{
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
-  /* background: url(../assets/bg/pic4.png); */
-  background-color: antiquewhite;
-  /* display: flex;                    
-  justify-content: center;
-  align-items: center;
-  height: 100vh; */
+ 
   background-size: cover;
   background-position: center;
 }
 
-.login-container{
-
+.login-container {                                                          /*login.css*/
+  background: url('../assets/bg/1354205.jpeg') no-repeat center center;
+  background-size: cover;
 }
+
+

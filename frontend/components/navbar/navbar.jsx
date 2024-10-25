@@ -5,7 +5,11 @@ import{Link} from "react-router-dom"
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar nav navbar-expand-lg bg-body-tertiary "
+      style={{
+        background: 'linear-gradient(90deg, #000428, #004e92)',
+      }}
+      >
   <div className="container-fluid">
     <Link className="navbar-brand" to="/">Leetcode Tracker</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

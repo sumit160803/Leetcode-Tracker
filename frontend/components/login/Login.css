@@ -1,0 +1,4 @@
+/* Add this in your custom CSS file */
+.bg-hover-gradient {
+  background: linear-gradient(16deg, #008b8b, #9370db);
+}
